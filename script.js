@@ -218,15 +218,16 @@ function mostrarProblema() {
 
     document.getElementById("problemaAtual").innerHTML = `
 
-        <div class="problema-titulo">
-            ⚠️ ${problema.titulo}
-        </div>
+    <div class="problema-titulo">
+        Questão ${problemaAtual + 1} de ${problemas.length}<br>
+        ⚠️ ${problema.titulo}
+    </div>
 
-        <p class="problema-descricao">
-            ${problema.descricao}
-        </p>
+    <p class="problema-descricao">
+        ${problema.descricao}
+    </p>
 
-    `;
+`;
 
 
     let botoes = "";
@@ -253,13 +254,13 @@ function mostrarProblema() {
     // Limpa o resultado anterior
 
     document.getElementById("resultadoTempoReal").innerHTML = "";
+
     decisaoTomada = false;
+
     const btn = document.getElementById("btnProximo");
+
     if (btn) btn.disabled = true;
-
 }
-
-
 // ========================================
 // ATUALIZAR INDICADORES
 // ========================================

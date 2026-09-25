@@ -235,6 +235,12 @@ button:hover {
     color: #4b5563;
 }
 
+.problema-numero {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
 
 /* ================================
    TEXTO DE AJUDA
