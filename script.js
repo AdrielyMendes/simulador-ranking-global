@@ -33,8 +33,14 @@ let problemas = [
             "⏰ Fazer horas extras",
             "🔄 Redistribuir tarefas",
             "❌ Não fazer nada"
-        ]
+        ],
+
+        correta: 0,
+
+        explicacao:
+            "A contratação de funcionários é a decisão mais adequada porque reduz a sobrecarga e aumenta a capacidade de produção. Pela Teoria de Sistemas, uma mudança no subsistema de Recursos Humanos influencia diretamente a produção e a satisfação dos funcionários."
     },
+
 
     {
         titulo: "Falta de estoque",
@@ -47,8 +53,14 @@ let problemas = [
             "🤝 Trocar fornecedor",
             "📉 Reduzir produção",
             "❌ Não fazer nada"
-        ]
+        ],
+
+        correta: 0,
+
+        explicacao:
+            "Comprar matéria-prima resolve diretamente o problema do estoque e evita uma interrupção da produção. Na Teoria de Sistemas, o estoque funciona como uma entrada importante para o sistema produtivo."
     },
+
 
     {
         titulo: "Queda nas vendas",
@@ -61,8 +73,14 @@ let problemas = [
             "🏷️ Fazer promoção",
             "💡 Criar novo produto",
             "📉 Reduzir produção"
-        ]
+        ],
+
+        correta: 0,
+
+        explicacao:
+            "Investir em publicidade pode aumentar a divulgação dos produtos e recuperar a demanda. A decisão também demonstra a interação entre o sistema de marketing, vendas e resultados financeiros."
     },
+
 
     {
         titulo: "Atrasos nas entregas",
@@ -75,8 +93,14 @@ let problemas = [
             "🚛 Aumentar frota",
             "🗺️ Reorganizar rotas",
             "❌ Não fazer nada"
-        ]
+        ],
+
+        correta: 2,
+
+        explicacao:
+            "Reorganizar as rotas é a decisão mais adequada porque busca melhorar a eficiência logística sem gerar um custo tão elevado quanto aumentar a frota. O problema mostra como o subsistema logístico influencia diretamente a satisfação dos clientes."
     },
+
 
     {
         titulo: "Custos elevados",
@@ -89,8 +113,14 @@ let problemas = [
             "👥 Reduzir funcionários",
             "🤖 Automatizar processos",
             "📉 Reduzir produção"
-        ]
+        ],
+
+        correta: 0,
+
+        explicacao:
+            "Trocar de fornecedor pode reduzir os custos de matéria-prima sem prejudicar diretamente os funcionários ou a produção. A decisão demonstra a relação entre fornecedores, financeiro, estoque e produção."
     },
+
 
     {
         titulo: "Reclamações dos clientes",
@@ -103,8 +133,14 @@ let problemas = [
             "👨‍💼 Contratar atendentes",
             "🔧 Melhorar produto",
             "❌ Não fazer nada"
-        ]
+        ],
+
+        correta: 0,
+
+        explicacao:
+            "Treinar os funcionários pode melhorar o atendimento e a qualidade dos processos. Pela Teoria de Sistemas, investir no subsistema de Recursos Humanos pode produzir efeitos positivos na satisfação dos clientes."
     },
+
 
     {
         titulo: "Falha no sistema",
@@ -117,8 +153,14 @@ let problemas = [
             "🔧 Fazer manutenção",
             "🧑‍💻 Contratar suporte externo",
             "❌ Não fazer nada"
-        ]
+        ],
+
+        correta: 1,
+
+        explicacao:
+            "Fazer manutenção é uma resposta adequada porque busca corrigir o problema existente sem necessariamente gerar o alto custo de substituir todo o sistema. O sistema de informação influencia diversos processos da organização."
     },
+
 
     {
         titulo: "Aumento da concorrência",
@@ -131,8 +173,14 @@ let problemas = [
             "📢 Investir em marketing",
             "⭐ Melhorar produto",
             "❌ Não alterar estratégia"
-        ]
+        ],
+
+        correta: 2,
+
+        explicacao:
+            "Melhorar o produto permite aumentar o valor oferecido ao cliente e criar diferenciação diante dos concorrentes. A decisão envolve a interação entre produção, qualidade, satisfação e vendas."
     },
+
 
     {
         titulo: "Fornecedor aumentou os preços",
@@ -145,8 +193,14 @@ let problemas = [
             "🤝 Negociar com fornecedor",
             "💰 Repassar aumento ao cliente",
             "💸 Absorver o aumento"
-        ]
+        ],
+
+        correta: 1,
+
+        explicacao:
+            "Negociar com o fornecedor permite buscar melhores condições antes de tomar medidas que podem afetar os clientes ou o resultado financeiro. A decisão considera a relação entre fornecedores, custos, preços e clientes."
     },
+
 
     {
         titulo: "Aumento repentino da demanda",
@@ -159,7 +213,12 @@ let problemas = [
             "👥 Contratar funcionários",
             "🤝 Terceirizar produção",
             "📦 Limitar pedidos"
-        ]
+        ],
+
+        correta: 0,
+
+        explicacao:
+            "Aumentar a produção permite atender ao crescimento da demanda e aproveitar a oportunidade de vendas. A decisão mostra a integração entre produção, estoque, funcionários, vendas e satisfação dos clientes."
     }
 
 ];
@@ -182,20 +241,28 @@ let jogoFinalizado = false;
 function iniciarJogo() {
 
     const campoNome = document.getElementById("nomeGestor");
+
     nomeGestor = campoNome.value.trim().replace(/\s+/g, " ");
 
     if (!nomeGestor) {
+
         alert("Digite o nome do gestor para entrar no ranking global.");
+
         campoNome.focus();
+
         return;
     }
 
     if (nomeGestor.length > 30) {
+
         nomeGestor = nomeGestor.slice(0, 30);
+
     }
 
     problemaAtual = 0;
+
     jogoFinalizado = false;
+
     decisaoTomada = false;
 
     document.getElementById("inicio").classList.add("escondido");
@@ -205,6 +272,7 @@ function iniciarJogo() {
     mostrarProblema();
 
     atualizarIndicadores();
+
 }
 
 
@@ -218,16 +286,21 @@ function mostrarProblema() {
 
     document.getElementById("problemaAtual").innerHTML = `
 
-    <div class="problema-titulo">
-        Questão ${problemaAtual + 1} de ${problemas.length}<br>
-        ⚠️ ${problema.titulo}
-    </div>
+        <div class="problema-titulo">
 
-    <p class="problema-descricao">
-        ${problema.descricao}
-    </p>
+            Questão ${problemaAtual + 1} de ${problemas.length}<br>
 
-`;
+            ⚠️ ${problema.titulo}
+
+        </div>
+
+        <p class="problema-descricao">
+
+            ${problema.descricao}
+
+        </p>
+
+    `;
 
 
     let botoes = "";
@@ -236,7 +309,7 @@ function mostrarProblema() {
 
         botoes += `
 
-            <button 
+            <button
                 class="btn-decisao"
                 onclick="tomarDecisao(${i})">
 
@@ -245,13 +318,13 @@ function mostrarProblema() {
             </button>
 
         `;
-    }
 
+    }
 
     document.getElementById("decisoes").innerHTML = botoes;
 
 
-    // Limpa o resultado anterior
+    // Limpa resultado anterior
 
     document.getElementById("resultadoTempoReal").innerHTML = "";
 
@@ -259,8 +332,15 @@ function mostrarProblema() {
 
     const btn = document.getElementById("btnProximo");
 
-    if (btn) btn.disabled = true;
+    if (btn) {
+
+        btn.disabled = true;
+
+    }
+
 }
+
+
 // ========================================
 // ATUALIZAR INDICADORES
 // ========================================
@@ -300,6 +380,7 @@ function atualizarIndicadores() {
         </div>
 
     `;
+
 }
 
 
@@ -310,11 +391,18 @@ function atualizarIndicadores() {
 function tomarDecisao(indice) {
 
     if (decisaoTomada || jogoFinalizado) return;
+
     decisaoTomada = true;
 
     let problema = problemaAtual;
 
-    let escolha = problemas[problema].decisoes[indice];
+    let dadosProblema = problemas[problema];
+
+    let escolha = dadosProblema.decisoes[indice];
+
+    let indiceCorreto = dadosProblema.correta;
+
+    let escolhaCorreta = dadosProblema.decisoes[indiceCorreto];
 
 
     // Guarda o estado ANTES da decisão
@@ -746,12 +834,24 @@ function tomarDecisao(indice) {
     atualizarIndicadores();
 
 
-    // Mostra o que aconteceu
+    // Mostra resultado
 
-    mostrarResultado(escolha, antes);
+    mostrarResultado(
+        escolha,
+        escolhaCorreta,
+        indice === indiceCorreto,
+        dadosProblema.explicacao,
+        antes
+    );
+
 
     const btn = document.getElementById("btnProximo");
-    if (btn) btn.disabled = false;
+
+    if (btn) {
+
+        btn.disabled = false;
+
+    }
 
 }
 
@@ -760,7 +860,13 @@ function tomarDecisao(indice) {
 // MOSTRAR RESULTADO EM TEMPO REAL
 // ========================================
 
-function mostrarResultado(escolha, antes) {
+function mostrarResultado(
+    escolha,
+    escolhaCorreta,
+    acertou,
+    explicacao,
+    antes
+) {
 
     let impactos = "";
 
@@ -807,11 +913,107 @@ function mostrarResultado(escolha, antes) {
     );
 
 
+    let avaliacao = "";
+
+    if (acertou) {
+
+        avaliacao = `
+
+            <div style="
+                background: #e8f8ee;
+                border: 2px solid #27ae60;
+                border-radius: 12px;
+                padding: 18px;
+                margin: 20px 0;
+            ">
+
+                <h3 style="color:#219653; margin-top:0;">
+                    ✅ Decisão mais adequada!
+                </h3>
+
+                <p>
+                    <strong>Você escolheu:</strong>
+                    ${escolha}
+                </p>
+
+                <p>
+                    <strong>Por que está correta?</strong>
+                </p>
+
+                <p>
+                    ${explicacao}
+                </p>
+
+            </div>
+
+        `;
+
+    } else {
+
+        avaliacao = `
+
+            <div style="
+                background: #fff4e5;
+                border: 2px solid #f39c12;
+                border-radius: 12px;
+                padding: 18px;
+                margin: 20px 0;
+            ">
+
+                <h3 style="color:#d68910; margin-top:0;">
+                    💡 Atenção à decisão
+                </h3>
+
+                <p>
+                    <strong>Você escolheu:</strong>
+                    ${escolha}
+                </p>
+
+                <p>
+                    Essa decisão pode trazer alguns efeitos positivos,
+                    mas não é considerada a alternativa mais adequada
+                    para resolver o problema apresentado.
+                </p>
+
+                <div style="
+                    background: #e8f8ee;
+                    border: 2px solid #27ae60;
+                    border-radius: 10px;
+                    padding: 15px;
+                    margin-top: 15px;
+                ">
+
+                    <h4 style="color:#219653; margin-top:0;">
+                        ✅ Decisão mais adequada
+                    </h4>
+
+                    <p>
+                        <strong>${escolhaCorreta}</strong>
+                    </p>
+
+                    <p>
+                        <strong>Por que?</strong>
+                    </p>
+
+                    <p>
+                        ${explicacao}
+                    </p>
+
+                </div>
+
+            </div>
+
+        `;
+
+    }
+
+
     document.getElementById("resultadoTempoReal").innerHTML = `
 
         <div class="resultado">
 
             <h2>⚡ Decisão aplicada!</h2>
+
 
             <div class="decisao-escolhida">
 
@@ -822,11 +1024,16 @@ function mostrarResultado(escolha, antes) {
             </div>
 
 
+            ${avaliacao}
+
+
             <h3>🔄 O que aconteceu com a empresa?</h3>
 
             <p style="margin: 10px 0 20px;">
+
                 A decisão afetou diferentes partes da organização.
                 Observe como os subsistemas estão interligados:
+
             </p>
 
 
@@ -902,9 +1109,11 @@ function criarImpacto(nome, antes, depois, tipo) {
 
     let simbolo = "→";
 
+
     if (diferenca > 0) {
 
         classe = "positivo";
+
         simbolo = "↑";
 
     }
@@ -912,12 +1121,14 @@ function criarImpacto(nome, antes, depois, tipo) {
     else if (diferenca < 0) {
 
         classe = "negativo";
+
         simbolo = "↓";
 
     }
 
 
     let valorAntes = antes;
+
     let valorDepois = depois;
 
 
@@ -934,6 +1145,7 @@ function criarImpacto(nome, antes, depois, tipo) {
     else if (tipo === "satisfacao") {
 
         valorAntes = antes + "%";
+
         valorDepois = depois + "%";
 
     }
@@ -960,7 +1172,10 @@ function criarImpacto(nome, antes, depois, tipo) {
             </p>
 
             <small>
-                Variação: ${diferenca > 0 ? "+" : ""}${diferenca}
+
+                Variação:
+                ${diferenca > 0 ? "+" : ""}${diferenca}
+
             </small>
 
         </div>
@@ -977,22 +1192,35 @@ function criarImpacto(nome, antes, depois, tipo) {
 function proximoProblema() {
 
     if (!decisaoTomada || jogoFinalizado) {
+
         alert("Tome uma decisão antes de continuar.");
+
         return;
+
     }
+
 
     problemaAtual++;
 
+
     if (problemaAtual >= problemas.length) {
+
         finalizarJogo();
+
         return;
+
     }
+
 
     mostrarProblema();
 
+
     window.scrollTo({
+
         top: 0,
+
         behavior: "smooth"
+
     });
 
 }
@@ -1005,6 +1233,7 @@ function proximoProblema() {
 function reiniciarJogo() {
 
     empresa = {
+
         funcionarios: 20,
         caixa: 50000,
         producao: 1000,
@@ -1013,162 +1242,538 @@ function reiniciarJogo() {
         satisfacao: 75,
         logistica: 80,
         rh: 80
+
     };
 
+
     problemaAtual = 0;
+
     decisaoTomada = false;
+
     jogoFinalizado = false;
 
+
     document.getElementById("jogo").classList.add("escondido");
+
     document.getElementById("inicio").classList.remove("escondido");
+
+
     carregarRanking();
 
-    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
 
 }
+
 
 // ========================================
 // RANKING GLOBAL - VERCEL
 // ========================================
 
 function calcularPontuacao() {
+
     const normalizar = (valor, minimo, maximo) => {
-        return Math.max(0, Math.min(100, ((valor - minimo) / (maximo - minimo)) * 100));
+
+        return Math.max(
+            0,
+            Math.min(
+                100,
+                ((valor - minimo) / (maximo - minimo)) * 100
+            )
+        );
+
     };
 
-    const financeiro = normalizar(empresa.caixa, 0, 60000);
-    const satisfacao = normalizar(empresa.satisfacao, 0, 100);
-    const rh = normalizar(empresa.rh, 0, 100);
-    const logistica = normalizar(empresa.logistica, 0, 100);
-    const producao = normalizar(empresa.producao, 500, 1800);
-    const vendas = normalizar(empresa.vendas, 500, 1800);
-    const estoque = 100 - Math.min(100, Math.abs(empresa.estoque - 1000) / 10);
-    const funcionarios = normalizar(empresa.funcionarios, 10, 35);
+
+    const financeiro =
+        normalizar(empresa.caixa, 0, 60000);
+
+    const satisfacao =
+        normalizar(empresa.satisfacao, 0, 100);
+
+    const rh =
+        normalizar(empresa.rh, 0, 100);
+
+    const logistica =
+        normalizar(empresa.logistica, 0, 100);
+
+    const producao =
+        normalizar(empresa.producao, 500, 1800);
+
+    const vendas =
+        normalizar(empresa.vendas, 500, 1800);
+
+    const estoque =
+        100 -
+        Math.min(
+            100,
+            Math.abs(empresa.estoque - 1000) / 10
+        );
+
+    const funcionarios =
+        normalizar(empresa.funcionarios, 10, 35);
+
 
     const pontos =
+
         financeiro * 0.20 +
+
         satisfacao * 0.20 +
+
         rh * 0.10 +
+
         logistica * 0.10 +
+
         producao * 0.10 +
+
         vendas * 0.15 +
+
         estoque * 0.05 +
+
         funcionarios * 0.10;
 
-    return Math.max(0, Math.min(1000, Math.round(pontos * 10)));
+
+    return Math.max(
+        0,
+        Math.min(
+            1000,
+            Math.round(pontos * 10)
+        )
+    );
+
 }
+
+
+// ========================================
+// PROTEÇÃO HTML
+// ========================================
 
 function escaparHTML(texto) {
-    return String(texto).replace(/[&<>'"]/g, (caractere) => ({
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        "'": "&#039;",
-        '"': "&quot;"
-    }[caractere]));
+
+    return String(texto).replace(
+        /[&<>'"]/g,
+        (caractere) => ({
+
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            "'": "&#039;",
+            '"': "&quot;"
+
+        }[caractere])
+    );
+
 }
+
+
+// ========================================
+// LER JSON DA API
+// ========================================
 
 async function lerRespostaJSON(resposta) {
+
     const texto = await resposta.text();
+
     let dados = {};
+
+
     try {
-        dados = texto ? JSON.parse(texto) : {};
-    } catch {
-        throw new Error("A API do ranking não retornou JSON válido. Verifique a configuração da Vercel.");
+
+        dados = texto
+            ? JSON.parse(texto)
+            : {};
+
     }
+
+    catch {
+
+        throw new Error(
+            "A API do ranking não retornou JSON válido. Verifique a configuração da Vercel."
+        );
+
+    }
+
+
     if (!resposta.ok) {
-        throw new Error(dados.erro || "Não foi possível acessar o ranking global.");
+
+        throw new Error(
+            dados.erro ||
+            "Não foi possível acessar o ranking global."
+        );
+
     }
+
+
     return dados;
+
 }
+
+
+// ========================================
+// CARREGAR RANKING
+// ========================================
 
 async function carregarRanking() {
-    const elementos = [document.getElementById("rankingInicio")];
+
+    const elementos = [
+
+        document.getElementById("rankingInicio")
+
+    ];
+
 
     try {
-        const resposta = await fetch("/api/ranking", { cache: "no-store" });
-        const dados = await lerRespostaJSON(resposta);
-        renderizarRanking(dados.ranking || [], elementos.filter(Boolean));
-    } catch (erro) {
-        elementos.filter(Boolean).forEach((el) => {
-            el.innerHTML = `<div class="ranking-erro">⚠️ ${escaparHTML(erro.message)}</div>`;
-        });
+
+        const resposta = await fetch(
+            "/api/ranking",
+            {
+                cache: "no-store"
+            }
+        );
+
+
+        const dados =
+            await lerRespostaJSON(resposta);
+
+
+        renderizarRanking(
+            dados.ranking || [],
+            elementos.filter(Boolean)
+        );
+
     }
+
+    catch (erro) {
+
+        elementos
+            .filter(Boolean)
+            .forEach((el) => {
+
+                el.innerHTML = `
+
+                    <div class="ranking-erro">
+
+                        ⚠️
+                        ${escaparHTML(erro.message)}
+
+                    </div>
+
+                `;
+
+            });
+
+    }
+
 }
+
+
+// ========================================
+// MOSTRAR RANKING
+// ========================================
 
 function renderizarRanking(ranking, elementos) {
+
     if (!ranking.length) {
-        elementos.forEach((el) => el.innerHTML = '<div class="ranking-vazio">Ainda não há gestores registrados. Seja o primeiro!</div>');
+
+        elementos.forEach((el) => {
+
+            el.innerHTML =
+
+                '<div class="ranking-vazio">' +
+                'Ainda não há gestores registrados. ' +
+                'Seja o primeiro!' +
+                '</div>';
+
+        });
+
         return;
+
     }
 
-    const linhas = ranking.slice(0, 10).map((item, indice) => `
-        <tr>
-            <td>${indice + 1}º</td>
-            <td>${escaparHTML(item.nome)}</td>
-            <td><strong>${item.pontuacao}</strong></td>
-        </tr>
-    `).join("");
+
+    const linhas = ranking
+        .slice(0, 10)
+        .map((item, indice) => `
+
+            <tr>
+
+                <td>
+                    ${indice + 1}º
+                </td>
+
+                <td>
+                    ${escaparHTML(item.nome)}
+                </td>
+
+                <td>
+                    <strong>
+                        ${item.pontuacao}
+                    </strong>
+                </td>
+
+            </tr>
+
+        `)
+        .join("");
+
 
     const tabela = `
+
         <table class="ranking-tabela">
-            <thead><tr><th>#</th><th>Gestor</th><th>Pontos</th></tr></thead>
-            <tbody>${linhas}</tbody>
+
+            <thead>
+
+                <tr>
+
+                    <th>#</th>
+
+                    <th>Gestor</th>
+
+                    <th>Pontos</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                ${linhas}
+
+            </tbody>
+
         </table>
+
     `;
 
-    elementos.forEach((el) => el.innerHTML = tabela);
-}
 
-async function enviarPontuacao(pontuacao) {
-    const resposta = await fetch("/api/ranking", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nome: nomeGestor, pontuacao })
+    elementos.forEach((el) => {
+
+        el.innerHTML = tabela;
+
     });
 
-    const dados = await lerRespostaJSON(resposta);
-    return dados;
 }
+
+
+// ========================================
+// ENVIAR PONTUAÇÃO
+// ========================================
+
+async function enviarPontuacao(pontuacao) {
+
+    const resposta = await fetch(
+        "/api/ranking",
+        {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+
+                nome: nomeGestor,
+
+                pontuacao
+
+            })
+
+        }
+    );
+
+
+    const dados =
+        await lerRespostaJSON(resposta);
+
+
+    return dados;
+
+}
+
+
+// ========================================
+// FINALIZAR JOGO
+// ========================================
 
 async function finalizarJogo() {
+
     jogoFinalizado = true;
+
     decisaoTomada = false;
 
-    const pontuacao = calcularPontuacao();
-    const btn = document.getElementById("btnProximo");
-    if (btn) btn.disabled = true;
 
-    document.getElementById("resultadoTempoReal").innerHTML = `
-        <div class="resultado-final">
-            <h2>🎉 Simulação concluída!</h2>
-            <p>Gestor: <strong>${escaparHTML(nomeGestor)}</strong></p>
-            <div class="pontuacao-final">${pontuacao} pontos</div>
-            <div id="statusRanking" class="colocacao-final">Enviando sua pontuação para o ranking global...</div>
-            <div class="ranking-final">
-                <h3>🏆 Ranking Global</h3>
-                <div id="rankingFinal">Carregando...</div>
-            </div>
-            <div class="acoes" style="margin-bottom:0;">
-                <button onclick="reiniciarJogo()">🔄 Jogar novamente</button>
-            </div>
-        </div>
-    `;
+    const pontuacao =
+        calcularPontuacao();
 
-    try {
-        const dados = await enviarPontuacao(pontuacao);
-        const ranking = dados.ranking || [];
-        const posicao = ranking.findIndex((item) => item.id === dados.resultado.id) + 1;
-        const status = document.getElementById("statusRanking");
-        if (status) status.textContent = posicao > 0 ? `Você ficou em ${posicao}º lugar no ranking global.` : "Pontuação registrada no ranking global.";
-        renderizarRanking(ranking, [document.getElementById("rankingFinal")].filter(Boolean));
-    } catch (erro) {
-        const status = document.getElementById("statusRanking");
-        if (status) status.innerHTML = `<span class="ranking-erro">${escaparHTML(erro.message)}</span>`;
+
+    const btn =
+        document.getElementById("btnProximo");
+
+
+    if (btn) {
+
+        btn.disabled = true;
+
     }
 
-    document.getElementById("resultadoTempoReal").scrollIntoView({ behavior: "smooth" });
+
+    document.getElementById("resultadoTempoReal").innerHTML = `
+
+        <div class="resultado-final">
+
+            <h2>
+                🎉 Simulação concluída!
+            </h2>
+
+            <p>
+                Gestor:
+                <strong>
+                    ${escaparHTML(nomeGestor)}
+                </strong>
+            </p>
+
+
+            <div class="pontuacao-final">
+
+                ${pontuacao} pontos
+
+            </div>
+
+
+            <div
+                id="statusRanking"
+                class="colocacao-final"
+            >
+
+                Enviando sua pontuação
+                para o ranking global...
+
+            </div>
+
+
+            <div class="ranking-final">
+
+                <h3>
+                    🏆 Ranking Global
+                </h3>
+
+                <div id="rankingFinal">
+
+                    Carregando...
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="acoes"
+                style="margin-bottom:0;"
+            >
+
+                <button onclick="reiniciarJogo()">
+
+                    🔄 Jogar novamente
+
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    try {
+
+        const dados =
+            await enviarPontuacao(pontuacao);
+
+
+        const ranking =
+            dados.ranking || [];
+
+
+        const posicao =
+
+            ranking.findIndex(
+                (item) =>
+                    item.id === dados.resultado.id
+            ) + 1;
+
+
+        const status =
+            document.getElementById("statusRanking");
+
+
+        if (status) {
+
+            status.textContent =
+                posicao > 0
+
+                    ? `Você ficou em ${posicao}º lugar no ranking global.`
+
+                    : "Pontuação registrada no ranking global.";
+
+        }
+
+
+        renderizarRanking(
+
+            ranking,
+
+            [
+                document.getElementById("rankingFinal")
+            ].filter(Boolean)
+
+        );
+
+    }
+
+    catch (erro) {
+
+        const status =
+            document.getElementById("statusRanking");
+
+
+        if (status) {
+
+            status.innerHTML = `
+
+                <span class="ranking-erro">
+
+                    ${escaparHTML(erro.message)}
+
+                </span>
+
+            `;
+
+        }
+
+    }
+
+
+    document
+        .getElementById("resultadoTempoReal")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
 }
 
-// Carrega o ranking assim que a página abre.
-window.addEventListener("DOMContentLoaded", carregarRanking);
+
+// ========================================
+// CARREGAR RANKING AO ABRIR
+// ========================================
+
+window.addEventListener(
+    "DOMContentLoaded",
+    carregarRanking
+);
