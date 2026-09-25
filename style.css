@@ -1,0 +1,884 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f3f5f7;
+    color: #222;
+}
+
+
+/* ================================
+   CABEÇALHO
+================================ */
+
+header {
+    background: #1f2937;
+    color: white;
+    text-align: center;
+    padding: 18px 15px;
+}
+
+header h1 {
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+header p {
+    font-size: 13px;
+}
+
+
+/* ================================
+   ÁREA PRINCIPAL
+================================ */
+
+main {
+    width: 95%;
+    max-width: 1150px;
+    margin: 15px auto;
+}
+
+.tela {
+    width: 100%;
+}
+
+.escondido {
+    display: none;
+}
+
+
+/* ================================
+   TELA INICIAL
+================================ */
+
+#inicio {
+    background: white;
+    padding: 35px 25px;
+    border-radius: 12px;
+    text-align: center;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+#inicio h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+#inicio p {
+    max-width: 650px;
+    margin: 8px auto;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+
+/* ================================
+   BOTÕES
+================================ */
+
+button {
+    border: none;
+    border-radius: 7px;
+    padding: 9px 13px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: translateY(-1px);
+}
+
+
+.btn-principal {
+    background: #2563eb;
+    color: white;
+    margin-top: 15px;
+}
+
+
+.btn-secundario {
+    background: #6b7280;
+    color: white;
+}
+
+
+/* ================================
+   DUAS COLUNAS
+================================ */
+
+.area-jogo {
+    display: grid;
+
+    grid-template-columns: 0.95fr 1.05fr;
+
+    gap: 12px;
+
+    align-items: start;
+}
+
+
+/* ================================
+   LADO ESQUERDO
+================================ */
+
+.lado-esquerdo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+/* ================================
+   LADO DIREITO
+================================ */
+
+.lado-direito {
+    position: sticky;
+    top: 10px;
+}
+
+
+/* ================================
+   CARDS
+================================ */
+
+.card {
+    background: white;
+
+    padding: 13px;
+
+    border-radius: 10px;
+
+    margin-bottom: 0;
+
+    box-shadow:
+        0 2px 7px rgba(0, 0, 0, 0.07);
+}
+
+.card h2 {
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+
+/* ================================
+   INDICADORES
+================================ */
+
+.indicadores {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 7px;
+}
+
+
+.indicador {
+    background: #f8fafc;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 7px;
+
+    padding: 9px 5px;
+
+    text-align: center;
+}
+
+
+.indicador strong {
+    display: block;
+
+    font-size: 10px;
+
+    margin-bottom: 4px;
+}
+
+
+.indicador span {
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+
+/* ================================
+   SITUAÇÃO
+================================ */
+
+.problema-card {
+    border-left: 4px solid #f59e0b;
+}
+
+
+.problema-titulo {
+    font-size: 15px;
+
+    font-weight: bold;
+
+    margin-bottom: 5px;
+}
+
+
+.problema-descricao {
+    line-height: 1.4;
+
+    font-size: 12px;
+
+    color: #4b5563;
+}
+
+
+/* ================================
+   TEXTO DE AJUDA
+================================ */
+
+.texto-ajuda {
+    color: #6b7280;
+
+    font-size: 11px;
+
+    margin-bottom: 8px;
+}
+
+
+/* ================================
+   DECISÕES
+================================ */
+
+.decisoes {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 7px;
+}
+
+
+.btn-decisao {
+    background: #eef2ff;
+
+    border: 1px solid #c7d2fe;
+
+    text-align: left;
+
+    padding: 9px;
+
+    font-size: 11px;
+
+    min-height: 35px;
+}
+
+
+.btn-decisao:hover {
+    background: #dbeafe;
+
+    border-color: #2563eb;
+}
+
+
+/* ================================
+   RESULTADO
+================================ */
+
+#resultadoTempoReal {
+    width: 100%;
+}
+
+
+.resultado {
+    background: white;
+
+    border-radius: 10px;
+
+    padding: 13px;
+
+    border-left: 4px solid #2563eb;
+
+    box-shadow:
+        0 2px 7px rgba(0, 0, 0, 0.07);
+
+    animation: aparecer 0.25s ease;
+}
+
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+.resultado h2 {
+    font-size: 15px;
+
+    margin-bottom: 9px;
+}
+
+
+/* ================================
+   MENSAGEM INICIAL
+================================ */
+
+.mensagem-inicial {
+    border-left: 4px solid #94a3b8;
+}
+
+
+.mensagem-inicial p {
+    font-size: 12px;
+
+    line-height: 1.5;
+
+    color: #6b7280;
+}
+
+
+.explicacao-sistema {
+    margin-top: 12px;
+
+    padding: 10px;
+
+    background: #f8fafc;
+
+    border-radius: 7px;
+}
+
+
+.explicacao-sistema strong {
+    display: block;
+
+    font-size: 12px;
+
+    margin-bottom: 4px;
+}
+
+
+.explicacao-sistema p {
+    font-size: 11px;
+}
+
+
+/* ================================
+   DECISÃO ESCOLHIDA
+================================ */
+
+.decisao-escolhida {
+    background: #eff6ff;
+
+    border: 1px solid #bfdbfe;
+
+    padding: 10px;
+
+    border-radius: 7px;
+
+    margin-bottom: 12px;
+}
+
+
+.decisao-escolhida strong {
+    display: block;
+
+    font-size: 11px;
+
+    margin-bottom: 4px;
+}
+
+
+.decisao-escolhida p {
+    font-size: 12px;
+
+    font-weight: bold;
+
+    color: #1d4ed8;
+}
+
+
+/* ================================
+   IMPACTOS
+================================ */
+
+.impactos {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 7px;
+
+    margin-top: 8px;
+}
+
+
+.impacto {
+    padding: 10px;
+
+    border-radius: 7px;
+
+    border: 1px solid #e5e7eb;
+
+    background: #f9fafb;
+}
+
+
+.impacto h3 {
+    font-size: 11px;
+
+    margin-bottom: 5px;
+}
+
+
+.impacto p {
+    font-size: 11px;
+
+    line-height: 1.4;
+}
+
+
+.impacto small {
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 9px;
+
+    color: #6b7280;
+}
+
+
+.valor {
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+
+/* ================================
+   CORES DOS IMPACTOS
+================================ */
+
+.positivo {
+    border-color: #86efac;
+
+    background: #f0fdf4;
+}
+
+
+.negativo {
+    border-color: #fca5a5;
+
+    background: #fef2f2;
+}
+
+
+.atencao {
+    border-color: #fde68a;
+
+    background: #fffbeb;
+}
+
+
+/* ================================
+   FLUXO
+================================ */
+
+.fluxo {
+    margin-top: 12px;
+
+    padding: 10px;
+
+    background: #f8fafc;
+
+    border-radius: 7px;
+
+    text-align: center;
+}
+
+
+.fluxo h3 {
+    font-size: 11px;
+
+    margin-bottom: 8px;
+}
+
+
+.fluxo-linha {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 4px;
+
+    flex-wrap: wrap;
+}
+
+
+.fluxo-item {
+    background: white;
+
+    border: 1px solid #cbd5e1;
+
+    padding: 6px 8px;
+
+    border-radius: 5px;
+
+    font-size: 9px;
+
+    font-weight: bold;
+}
+
+
+.seta {
+    font-size: 12px;
+
+    font-weight: bold;
+
+    color: #64748b;
+}
+
+
+/* ================================
+   BOTÕES INFERIORES
+================================ */
+
+.acoes {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    margin: 12px 0;
+}
+
+
+.acoes button {
+    font-size: 11px;
+
+    padding: 8px 12px;
+
+    background: #2563eb;
+
+    color: white;
+}
+
+
+.acoes .btn-secundario {
+    background: #6b7280;
+}
+
+
+/* ================================
+   CELULAR
+================================ */
+
+@media (max-width: 700px) {
+
+    .area-jogo {
+        grid-template-columns: 1fr;
+    }
+
+    .lado-direito {
+        position: static;
+    }
+
+    .indicadores {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+
+/* ================================
+   CELULAR PEQUENO
+================================ */
+
+@media (max-width: 450px) {
+
+    main {
+        width: 96%;
+    }
+
+    header h1 {
+        font-size: 19px;
+    }
+
+    .indicadores {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .decisoes {
+        grid-template-columns: 1fr;
+    }
+
+    .impactos {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* ================================
+   MANTER LADO A LADO NO CELULAR
+================================ */
+
+.area-jogo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    align-items: start;
+}
+
+
+/* Impede que o lado direito desça */
+
+.lado-direito {
+    position: sticky;
+    top: 5px;
+}
+
+
+/* Ajustes para telas pequenas */
+
+@media (max-width: 700px) {
+
+    main {
+        width: 98%;
+        margin: 8px auto;
+    }
+
+    .area-jogo {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+    }
+
+    .card {
+        padding: 9px;
+    }
+
+    .card h2 {
+        font-size: 12px;
+        margin-bottom: 7px;
+    }
+
+    .indicadores {
+        grid-template-columns: 1fr 1fr;
+        gap: 4px;
+    }
+
+    .indicador {
+        padding: 7px 3px;
+    }
+
+    .indicador strong {
+        font-size: 8px;
+    }
+
+    .indicador span {
+        font-size: 11px;
+    }
+
+    .decisoes {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+
+    .btn-decisao {
+        padding: 7px 5px;
+        font-size: 9px;
+    }
+
+    .problema-titulo {
+        font-size: 12px;
+    }
+
+    .problema-descricao {
+        font-size: 9px;
+    }
+
+    .impactos {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+
+    .impacto {
+        padding: 7px;
+    }
+
+    .impacto h3 {
+        font-size: 9px;
+    }
+
+    .impacto p {
+        font-size: 9px;
+    }
+
+    .valor {
+        font-size: 10px;
+    }
+
+    .resultado {
+        padding: 9px;
+    }
+
+    .resultado h2 {
+        font-size: 12px;
+    }
+
+    .decisao-escolhida {
+        padding: 7px;
+    }
+
+    .decisao-escolhida p {
+        font-size: 9px;
+    }
+
+    .fluxo {
+        padding: 7px;
+    }
+
+    .fluxo-item {
+        font-size: 7px;
+        padding: 4px 5px;
+    }
+
+    .seta {
+        font-size: 9px;
+    }
+
+    .acoes {
+        gap: 5px;
+    }
+
+    .acoes button {
+        font-size: 9px;
+        padding: 7px;
+    }
+}
+/* ================================
+   IDENTIFICAÇÃO E RANKING GLOBAL
+================================ */
+.identificacao-gestor {
+    max-width: 420px;
+    margin: 20px auto 10px;
+    text-align: left;
+}
+
+.identificacao-gestor label {
+    display: block;
+    font-weight: bold;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.identificacao-gestor input {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+}
+
+.identificacao-gestor input:focus {
+    border-color: #2563eb;
+}
+
+.identificacao-gestor small {
+    display: block;
+    margin-top: 5px;
+    color: #64748b;
+    font-size: 11px;
+}
+
+.ranking-inicio {
+    max-width: 560px;
+    margin: 25px auto 0;
+    padding: 15px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.ranking-titulo {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.ranking-tabela {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+.ranking-tabela th,
+.ranking-tabela td {
+    padding: 7px 5px;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: left;
+}
+
+.ranking-tabela th:last-child,
+.ranking-tabela td:last-child {
+    text-align: right;
+}
+
+.ranking-vazio {
+    color: #64748b;
+    font-size: 12px;
+}
+
+.resultado-final {
+    background: white;
+    border-radius: 10px;
+    padding: 16px;
+    border-left: 4px solid #16a34a;
+    box-shadow: 0 2px 7px rgba(0,0,0,.07);
+}
+
+.resultado-final h2 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.pontuacao-final {
+    font-size: 34px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.colocacao-final {
+    font-size: 13px;
+    color: #475569;
+    margin-bottom: 12px;
+}
+
+.ranking-final {
+    margin-top: 15px;
+}
+
+.ranking-final h3 {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.ranking-erro {
+    color: #b91c1c;
+    font-size: 12px;
+}

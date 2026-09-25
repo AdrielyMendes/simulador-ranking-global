@@ -1,0 +1,10 @@
+{
+  "name": "simulador-teoria-sistemas",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Simulador de Decisões Gerenciais com ranking global na Vercel",
+  "dependencies": {
+    "@vercel/blob": "2.6.1"
+  },
+  "type": "module"
+}

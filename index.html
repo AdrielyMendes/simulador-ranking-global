@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Simulador de Decisões Gerenciais</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- CABEÇALHO -->
+
+    <header>
+
+        <h1>Simulador de Decisões Gerenciais</h1>
+
+        <p>
+            Aplicando a Teoria de Sistemas na prática
+        </p>
+
+    </header>
+
+
+
+    <main>
+
+
+        <!-- ========================================= -->
+        <!-- TELA INICIAL -->
+        <!-- ========================================= -->
+
+        <section id="inicio" class="tela">
+
+            <h2>Teoria de Sistemas na prática</h2>
+
+            <p>Você será o gestor de uma organização. Tome decisões e observe como elas afetam diferentes setores da empresa.</p>
+            <p>Cada decisão provoca mudanças no sistema e altera o estado da organização.</p>
+
+            <div class="identificacao-gestor">
+                <label for="nomeGestor">👨‍💼 Nome do gestor</label>
+                <input id="nomeGestor" type="text" maxlength="30" placeholder="Digite seu nome" autocomplete="name">
+                <small>Seu nome e sua pontuação aparecerão no ranking global.</small>
+            </div>
+
+            <button class="btn-principal" onclick="iniciarJogo()">▶ Iniciar Simulação</button>
+
+            <div class="ranking-inicio">
+                <div class="ranking-titulo">🏆 Ranking Global</div>
+                <div id="rankingInicio">Carregando ranking...</div>
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================================= -->
+        <!-- JOGO -->
+        <!-- ========================================= -->
+
+        <section
+            id="jogo"
+            class="tela escondido">
+
+
+            <!-- ===================================== -->
+            <!-- DIVISÃO DA TELA -->
+            <!-- ===================================== -->
+
+            <div class="area-jogo">
+
+
+
+                <!-- ================================= -->
+                <!-- LADO ESQUERDO -->
+                <!-- ================================= -->
+
+                <div class="lado-esquerdo">
+
+
+
+                    <!-- ============================= -->
+                    <!-- ESTADO DA ORGANIZAÇÃO -->
+                    <!-- ============================= -->
+
+                    <div class="card">
+
+                        <h2>
+                            Estado atual da organização
+                        </h2>
+
+
+                        <div
+                            id="indicadores"
+                            class="indicadores">
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ============================= -->
+                    <!-- SITUAÇÃO -->
+                    <!-- ============================= -->
+
+                    <div class="card problema-card">
+
+                        <h2>
+                            ⚠️ Situação da organização
+                        </h2>
+
+
+                        <div id="problemaAtual">
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ============================= -->
+                    <!-- DECISÕES -->
+                    <!-- ============================= -->
+
+                    <div class="card">
+
+                        <h2>
+                            Qual decisão você vai tomar?
+                        </h2>
+
+
+                        <p class="texto-ajuda">
+
+                            Escolha uma opção e observe
+                            imediatamente os impactos
+                            na organização.
+
+                        </p>
+
+
+                        <div
+                            id="decisoes"
+                            class="decisoes">
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- ================================= -->
+                <!-- LADO DIREITO -->
+                <!-- ================================= -->
+
+                <div class="lado-direito">
+
+
+                    <div id="resultadoTempoReal">
+
+
+                        <!-- ========================= -->
+                        <!-- MENSAGEM INICIAL -->
+                        <!-- ========================= -->
+
+                        <div class="card mensagem-inicial">
+
+                            <h2>
+                                ⚡ Decisão aplicada
+                            </h2>
+
+
+                            <p>
+                                Escolha uma decisão ao lado
+                                para observar em tempo real
+                                o que acontece com a empresa.
+                            </p>
+
+
+                            <div class="explicacao-sistema">
+
+                                <strong>
+                                    🔗 Teoria de Sistemas
+                                </strong>
+
+
+                                <p>
+
+                                    Uma decisão pode afetar
+                                    vários setores da organização
+                                    ao mesmo tempo.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ===================================== -->
+            <!-- BOTÕES INFERIORES -->
+            <!-- ===================================== -->
+
+            <div class="acoes">
+
+
+                <button
+                    onclick="proximoProblema()"
+                    id="btnProximo">
+
+                    ➡ Escolher outro problema
+
+                </button>
+
+
+
+                <button
+                    onclick="reiniciarJogo()"
+                    class="btn-secundario">
+
+                    🔄 Reiniciar simulação
+
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
